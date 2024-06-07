@@ -2,8 +2,11 @@
 //Each marker id should be unique.
 //See example below
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'main.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,15 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ),
   ];
-
-  static const CameraPosition _initialPosition = CameraPosition(
-    target: LatLng(
-      30.1798,
-      66.9750,
-    ),
-    zoom: 15,
-  );
-
   final Completer<GoogleMapController> _controller = Completer();
 
   @override
@@ -64,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: GoogleMap(
         markers: Set.of(_markers),
-        initialCameraPosition: _initialPosition,
+        initialCameraPosition: initialPosition,
         onMapCreated: (controller) {
           _controller.complete(controller);
         },
