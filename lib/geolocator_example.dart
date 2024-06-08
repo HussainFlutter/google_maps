@@ -1,9 +1,9 @@
-// Geo Coder is a package using which you can get the address of anywhere with coordinates(Lat lng).
+// Geocoding is a package using which you can get the address of anywhere with coordinates(Lat lng).
 // And vise versa you can get the coordinates (Lat lng) of anywhere if you give it the address.
 //See example below
 
 import 'package:flutter/material.dart';
-import 'package:flutter_geocoder/geocoder.dart';
+import 'package:geocoding/geocoding.dart';
 
 class GeoLocatorExample extends StatefulWidget {
   const GeoLocatorExample({super.key});
@@ -87,15 +87,14 @@ class _State extends State<GeoLocatorExample> {
                   onPressed: () async {
                     if (_latController.text.isNotEmpty) {
                       if (_lngController.text.isNotEmpty) {
-                        final coordinates = Coordinates(
+                        final address = await placemarkFromCoordinates(
                           double.parse(_latController.text),
                           double.parse(_lngController.text),
                         );
-                        final address = await Geocoder.local
-                            .findAddressesFromCoordinates(coordinates);
                         setState(() {
-                          convertedCoordinates = "${address.first.addressLine},"
-                              "${address.first.countryName}";
+                          convertedCoordinates = "${address.first.street},"
+                              "${address.first.name},"
+                              "${address.first.country}";
                         });
                       }
                     }
@@ -122,11 +121,11 @@ class _State extends State<GeoLocatorExample> {
                 ElevatedButton(
                   onPressed: () async {
                     if (_addressController.text.isNotEmpty) {
-                      final address = await Geocoder.local
-                          .findAddressesFromQuery(
-                              _addressController.text.toString());
+                      final address = await locationFromAddress(
+                          _addressController.text.toString());
                       setState(() {
-                        convertedAddress = address.first.coordinates.toString();
+                        convertedAddress =
+                            "${address.first.latitude.toString()}${address.first.longitude.toString()}";
                       });
                     }
                   },
