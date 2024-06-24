@@ -27,13 +27,15 @@ class _GooglePlacesApiExampleState extends State<GooglePlacesApiExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Search For Places"),
+        title: const Text("Google Search Apo Example"),
         backgroundColor: Colors.cyan,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            const Text(
+                "This example is not working because my billing account is having issue in google console, You can also find the code for this on my github"),
             const SizedBox(
               height: 10,
             ),

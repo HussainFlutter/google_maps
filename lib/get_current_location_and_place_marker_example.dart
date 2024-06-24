@@ -21,6 +21,9 @@ class _GetCurrentLocationState extends State<GetCurrentLocation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Current location and marker Example"),
+      ),
       body: GoogleMap(
         initialCameraPosition: initialPosition,
         onMapCreated: (controller) {

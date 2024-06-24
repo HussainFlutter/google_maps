@@ -37,6 +37,9 @@ class _DrawPolygonExampleState extends State<DrawPolygonExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Draw polygon Example"),
+      ),
       body: GoogleMap(
         initialCameraPosition: initialPosition,
         polygons: Set<Polygon>.of(_polygon),

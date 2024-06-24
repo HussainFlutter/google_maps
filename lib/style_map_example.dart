@@ -41,26 +41,32 @@ class _StyleMapExampleState extends State<StyleMapExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Style map Example"),
+      ),
       body: GoogleMap(
         initialCameraPosition: initialPosition,
         style: mapTheme,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          if (index + 1 < mapThemeList.length) {
-            setState(() {
-              index = index + 1;
-              mapTheme = mapThemeList[index];
-            });
-          } else {
-            setState(() {
-              index = 0;
-              mapTheme = mapThemeList[index];
-            });
-          }
-        },
-        child: const Icon(Icons.navigate_next),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: FloatingActionButton(
+          onPressed: () {
+            if (index + 1 < mapThemeList.length) {
+              setState(() {
+                index = index + 1;
+                mapTheme = mapThemeList[index];
+              });
+            } else {
+              setState(() {
+                index = 0;
+                mapTheme = mapThemeList[index];
+              });
+            }
+          },
+          child: const Icon(Icons.navigate_next),
+        ),
       ),
     );
   }

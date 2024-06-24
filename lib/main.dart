@@ -24,3 +24,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+// MarkersExample()
+// CustomInfoWindowExample()
+// DrawPolygonExample()
+// GeoLocatorExample()
+// GetCurrentLocation()
+// GooglePlacesApiExample()
+// NetworkImageAsMarkerExample()
+// StyleMapExample()
+//33 67

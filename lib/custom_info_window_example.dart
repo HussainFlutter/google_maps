@@ -81,6 +81,9 @@ class _CustomInfoWindowExampleState extends State<CustomInfoWindowExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Custom info window Example"),
+      ),
       body: Stack(
         children: [
           GoogleMap(

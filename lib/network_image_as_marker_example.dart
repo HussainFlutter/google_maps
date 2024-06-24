@@ -85,6 +85,9 @@ class _NetworkImageAsMarkerExampleState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Network image as marker Example"),
+      ),
       body: GoogleMap(
         markers: Set.of(_markers),
         initialCameraPosition: initialPosition,

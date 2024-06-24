@@ -8,14 +8,14 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'main.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class MarkerExample extends StatefulWidget {
+  const MarkerExample({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<MarkerExample> createState() => _MarkerExampleState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _MarkerExampleState extends State<MarkerExample> {
   final List<Marker> _markers = <Marker>[
     const Marker(
       markerId: MarkerId('marker_1'),
@@ -56,6 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Marker Example"),
+      ),
       body: GoogleMap(
         markers: Set.of(_markers),
         initialCameraPosition: initialPosition,

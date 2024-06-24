@@ -71,6 +71,9 @@ class _CustomMarkersExampleState extends State<CustomMarkersExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Custom markers Example"),
+      ),
       body: GoogleMap(
         initialCameraPosition: initialPosition,
         markers: Set<Marker>.of(_markers),
